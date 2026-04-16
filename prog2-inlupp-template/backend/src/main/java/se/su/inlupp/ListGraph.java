@@ -1,24 +1,45 @@
 package se.su.inlupp;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.List;
+import java.util.HashMap;
 
 public class ListGraph<T> implements Graph<T> {
 
+  private final Map<T, List<Edge<T>>> graf = new HashMap<>();
   @Override
   public void add(T node) {
-    throw new UnsupportedOperationException("Unimplemented method 'add'");
+    graf.putIfAbsent(node, new ArrayList<>()); //Om nyckeln inte finns så läggs den till.
+
+
+    //throw new UnsupportedOperationException("Unimplemented method 'add'");
   }
 
   @Override
   public void remove(T node) {
-    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    if(!hasNode(node)){  //om noden är false skickas meddelande
+      throw new NoSuchElementException("Noden finns inte");
+    }
+    List<Edge<T>> kanter = graf.get(node); 
+    // gå igenom alla kanter
+      // Gå till destinationen av kanten och ta bort kanten till node
+    // ta bort alla kanter
+    // ta bort nod    allt i remove.
+
+    //graf.remove(node);  slut mål
+   
+    //throw new UnsupportedOperationException("Unimplemented method 'remove'");
   }
 
   @Override
   public boolean hasNode(T node) {
-    throw new UnsupportedOperationException("Unimplemented method 'hasNode'");
+    return graf.containsKey(node);  //kollar om mappen har en nyckel och returnerar true om det finns annars false
+    //throw new UnsupportedOperationException("Unimplemented method 'hasNode'");
   }
 
   @Override
@@ -27,7 +48,7 @@ public class ListGraph<T> implements Graph<T> {
   }
 
   @Override
-  public void disconnect(T node1, T node2) {
+  public void disconnect(T node1, T node2) {  //alla metoder som ska skrivas in.
     throw new UnsupportedOperationException("Unimplemented method 'disconnect'");
   }
 
@@ -56,4 +77,5 @@ public class ListGraph<T> implements Graph<T> {
     throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
+
 
