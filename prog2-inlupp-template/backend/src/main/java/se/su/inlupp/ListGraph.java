@@ -49,6 +49,15 @@ public class ListGraph<T> implements Graph<T> {
 
   @Override
   public void connect(T node1, T node2, String name, int weight) {
+    this.add(node1); // guarantee that cities.get(a) returns a set
+    this.add(node2);
+
+    List<Edge<T>> aEdges = graph.get(node1);
+    List<Edge<T>> bEdges = graph.get(node2);
+
+    //aEdges.add(new Edge<T>(node2, name, weight));   //vet inte vad som gör att det inte funkar
+    //bEdges.add(new Edge<T>(node1, name, weight));
+    
     throw new UnsupportedOperationException("Unimplemented method 'connect'");
   }
 
@@ -84,3 +93,4 @@ public class ListGraph<T> implements Graph<T> {
     throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
+
