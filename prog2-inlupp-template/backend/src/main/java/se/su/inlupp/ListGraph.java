@@ -24,6 +24,8 @@ public class ListGraph<T> implements Graph<T> {
     if(!hasNode(node)){  //om noden är false skickas meddelande
       node = null;
       throw new NoSuchElementException("Noden finns inte");
+    } else {
+      graph.remove(node);  //säker ett dåligt sätt att göra.
     }
     List<Edge<T>> kanter = graph.get(node); 
     // gå igenom alla kanter
@@ -82,6 +84,3 @@ public class ListGraph<T> implements Graph<T> {
     throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
-
-
-
