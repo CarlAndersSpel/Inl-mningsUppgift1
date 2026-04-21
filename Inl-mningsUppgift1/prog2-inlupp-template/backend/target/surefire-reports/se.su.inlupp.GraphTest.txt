@@ -1,0 +1,600 @@
+-------------------------------------------------------------------------------
+Test set: se.su.inlupp.GraphTest
+-------------------------------------------------------------------------------
+Tests run: 48, Failures: 2, Errors: 44, Skipped: 0, Time elapsed: 0.272 s <<< FAILURE! -- in se.su.inlupp.GraphTest
+se.su.inlupp.GraphTest.test00_newGraphIsEmptyGraph -- Time elapsed: 0.016 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'getNodes'
+	at se.su.inlupp.ListGraph.getNodes(ListGraph.java:41)
+	at se.su.inlupp.GraphTest.test00_newGraphIsEmptyGraph(GraphTest.java:112)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test01_add(String)[1] -- Time elapsed: 0.013 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.test01_add(GraphTest.java:120)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test01_add(String)[2] -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.test01_add(GraphTest.java:120)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test01_add(String)[3] -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.test01_add(GraphTest.java:120)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test01_add_duplicate -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.test01_add_duplicate(GraphTest.java:130)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test02_hasNode_existing -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.test02_hasNode_existing(GraphTest.java:143)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test02_hasNode_nonexisting -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'hasNode'
+	at se.su.inlupp.ListGraph.hasNode(ListGraph.java:21)
+	at se.su.inlupp.GraphTest.test02_hasNode_nonexisting(GraphTest.java:153)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test02_hasNode_after_remove -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.test02_hasNode_after_remove(GraphTest.java:161)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test04_remove_existing_node_with_edge -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test04_remove_existing_node_with_edge(GraphTest.java:174)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test04_remove_nonexisting_node -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Fel: undantaget NoSuchElementException borde ha kastats. ==> Unexpected exception type thrown, expected: <java.util.NoSuchElementException> but was: <java.lang.UnsupportedOperationException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3153)
+	at se.su.inlupp.GraphTest.test04_remove_nonexisting_node(GraphTest.java:204)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.UnsupportedOperationException: Unimplemented method 'remove'
+	at se.su.inlupp.ListGraph.remove(ListGraph.java:16)
+	at se.su.inlupp.GraphTest.lambda$test04_remove_nonexisting_node$0(GraphTest.java:206)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+
+se.su.inlupp.GraphTest.test05_getNodes -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test05_getNodes(GraphTest.java:214)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test05_iterator -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test05_iterator(GraphTest.java:225)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test05_iterator_empty -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'iterator'
+	at se.su.inlupp.ListGraph.iterator(ListGraph.java:56)
+	at se.su.inlupp.GraphTest.test05_iterator_empty(GraphTest.java:247)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test06_connect_existing_nodes_with_edge -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.test06_connect_existing_nodes_with_edge(GraphTest.java:254)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test06_connect_existing_nodes_without_edge -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.test06_connect_existing_nodes_without_edge(GraphTest.java:266)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test06_connect_negative_weight -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.test06_connect_negative_weight(GraphTest.java:279)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test06_connect_non_existing_nodes -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.test06_connect_non_existing_nodes(GraphTest.java:290)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test07_disconnect -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test07_disconnect(GraphTest.java:301)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test07_disconnect_missing_node -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test07_disconnect_missing_node(GraphTest.java:313)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test07_disconnect_no_connection -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test07_disconnect_no_connection(GraphTest.java:324)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test08_getEdgeBetween_existing_edge -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test08_getEdgeBetween_existing_edge(GraphTest.java:335)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test08_getEdgeBetween_missing_node -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test08_getEdgeBetween_missing_node(GraphTest.java:346)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test08_getEdgeBetween_nonexisting_edge -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test08_getEdgeBetween_nonexisting_edge(GraphTest.java:357)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test09_getEdgesFrom_existing_node_with_edges -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test09_getEdgesFrom_existing_node_with_edges(GraphTest.java:365)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test09_getEdgesFrom_existing_node_without_edges -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test09_getEdgesFrom_existing_node_without_edges(GraphTest.java:391)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test09_getEdgesFrom_non_existing_node -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Fel: undantaget NoSuchElementException borde ha kastats. ==> Unexpected exception type thrown, expected: <java.util.NoSuchElementException> but was: <java.lang.UnsupportedOperationException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3153)
+	at se.su.inlupp.GraphTest.test09_getEdgesFrom_non_existing_node(GraphTest.java:401)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.UnsupportedOperationException: Unimplemented method 'getEdgesFrom'
+	at se.su.inlupp.ListGraph.getEdgesFrom(ListGraph.java:46)
+	at se.su.inlupp.GraphTest.lambda$test09_getEdgesFrom_non_existing_node$0(GraphTest.java:403)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+
+se.su.inlupp.GraphTest.test12_setConnectionWeight_invalid_weight -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test12_setConnectionWeight_invalid_weight(GraphTest.java:422)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test12_setConnectionWeight_invalid_node -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test12_setConnectionWeight_invalid_node(GraphTest.java:411)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test12_setConnectionWeight_valid_edge -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test12_setConnectionWeight_valid_edge(GraphTest.java:433)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test12_setConnectionWeight_no_edge -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test12_setConnectionWeight_no_edge(GraphTest.java:453)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test13_edgeToString_valid_edge -- Time elapsed: 0 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test13_edgeToString_valid_edge(GraphTest.java:464)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test14_graphToString -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test14_graphToString(GraphTest.java:480)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test15_edgeSetWeight -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test15_edgeSetWeight(GraphTest.java:513)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test20_dfs_findPath_existing -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test20_dfs_findPath_existing(GraphTest.java:526)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test20_dfs_findPath_nonexisting -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test20_dfs_findPath_nonexisting(GraphTest.java:540)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test20_dfs_findPath_direct -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test20_dfs_findPath_direct(GraphTest.java:550)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test21_bfs_findPath_existing -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test21_bfs_findPath_existing(GraphTest.java:562)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test21_bfs_findPath_nonexisting -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test21_bfs_findPath_nonexisting(GraphTest.java:576)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test21_bfs_findPath_shortest_by_edges -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test21_bfs_findPath_shortest_by_edges(GraphTest.java:586)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test21_bfs_findPath_direct -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test21_bfs_findPath_direct(GraphTest.java:602)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test22_path_getNodes -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test22_path_getNodes(GraphTest.java:614)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test22_path_getEdges -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test22_path_getEdges(GraphTest.java:631)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test22_path_getTotalWeight -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test22_path_getTotalWeight(GraphTest.java:645)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test22_path_iterable -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test22_path_iterable(GraphTest.java:660)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test22_path_toString -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test22_path_toString(GraphTest.java:677)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+se.su.inlupp.GraphTest.test23_strategy_pattern -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: Unimplemented method 'add'
+	at se.su.inlupp.ListGraph.add(ListGraph.java:11)
+	at se.su.inlupp.GraphTest.add(GraphTest.java:51)
+	at se.su.inlupp.GraphTest.addExampleNodes(GraphTest.java:57)
+	at se.su.inlupp.GraphTest.createExampleGraph(GraphTest.java:76)
+	at se.su.inlupp.GraphTest.test23_strategy_pattern(GraphTest.java:690)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
