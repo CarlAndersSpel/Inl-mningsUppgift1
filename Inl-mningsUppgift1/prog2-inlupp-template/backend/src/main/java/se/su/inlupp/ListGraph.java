@@ -23,10 +23,15 @@ public class ListGraph<T> implements Graph<T> {
   public void remove(T node) {
     if(!hasNode(node)){  //om noden är false skickas meddelande
       throw new NoSuchElementException("Noden finns inte");
-    } else {
-      graph.remove(node);  //säker ett dåligt sätt att göra.
+    } 
+
+    List<Edge<T>> edges = graph.get(node); 
+
+      for ( Edge<T> e : edges){
+        disconnect(node, e.getDestination()); //alla noder jag(node) har en kant till disconnectar(alltså ta bort kanter och kantanen från andra sidan tas också bort).
+      }
+         graph.remove(node);
     }
-    List<Edge<T>> kanter = graph.get(node); 
     // gå igenom alla kanter
     
     //loppa igenom alla noder i "node" sen kan man ta bort den.
@@ -38,7 +43,7 @@ public class ListGraph<T> implements Graph<T> {
     //graf.remove(node);  slut mål
    
     //throw new UnsupportedOperationException("Unimplemented method 'remove'");
-  }
+  
 
   @Override
   public boolean hasNode(T node) {
@@ -50,21 +55,64 @@ public class ListGraph<T> implements Graph<T> {
 
   @Override
   public void connect(T node1, T node2, String name, int weight) {
-    this.add(node1); // guarantee that cities.get(a) returns a set
+      
+  if(graph.get(node1) == null || graph.get(node2) == null)
+    {
+      throw new NoSuchElementException("not[null]");
+  }
+    if(getEdgeBetween(node1, node2) != null || getEdgeBetween(node2, node1) != null)
+    {
+      throw new IllegalStateException("not[null]");
+  }
+
+    if (weight < 0){
+      throw new IllegalArgumentException();
+    }
+
+    this.add(node1); 
     this.add(node2);
 //skapa en klass som implementerar gränsnittet edge.
     List<Edge<T>> aEdges = graph.get(node1);
     List<Edge<T>> bEdges = graph.get(node2);
 
-    aEdges.add(new Edge<T>(node2, name, weight));   //vet inte vad som gör att det inte funkar
-    bEdges.add(new Edge<T>(node1, name, weight));
+    aEdges.add(new MyEdge<T>(node2, name, weight));   //vet inte vad som gör att det inte funkar
+    bEdges.add(new MyEdge<T>(node1, name, weight));
+    
     
     //throw new UnsupportedOperationException("Unimplemented method 'connect'");
   }
 
   @Override
   public void disconnect(T node1, T node2) {  //alla metoder som ska skrivas in.
-    throw new UnsupportedOperationException("Unimplemented method 'disconnect'");
+
+    if(graph.get(node1) == null || graph.get(node2) == null)
+    {
+      throw new NoSuchElementException("not[null]");
+  }
+      if(getEdgeBetween(node1, node2) == null || getEdgeBetween(node2, node1) == null)
+    {
+      throw new IllegalStateException("not[null]");
+  }
+    List<Edge<T>> aEdges = graph.get(node1);
+    List<Edge<T>> bEdges = graph.get(node2);
+    
+    for ( int i = 0; i < aEdges.size(); i++)   //disconnect i remove 
+    {
+        if(aEdges.get(i).getDestination().equals(node2)){
+              aEdges.remove(i);
+              i--;
+        }
+    }
+    for ( int i = 0; i < bEdges.size(); i++)
+    {
+        if(bEdges.get(i).getDestination().equals(node1)){
+              bEdges.remove(i);
+              i--;
+        }
+    }
+    
+
+    //throw new UnsupportedOperationException("Unimplemented method 'disconnect'");
   }
 
   @Override
@@ -81,17 +129,40 @@ public class ListGraph<T> implements Graph<T> {
 
   @Override
   public Collection<Edge<T>> getEdgesFrom(T node) {
-    throw new UnsupportedOperationException("Unimplemented method 'getEdgesFrom'");
+    //graph.
+    List<Edge<T>> theEdge = graph.get(node);
+    if(graph.get(node) == null){
+      throw new NoSuchElementException("not[null]");
+    }
+
+
+        return theEdge;
+
+
   }
 
   @Override
   public Edge<T> getEdgeBetween(T node1, T node2) {
-    throw new UnsupportedOperationException("Unimplemented method 'getEdgeBetween'");
+    List<Edge<T>> edgeFromNode1 = graph.get(node1);
+    if(graph.get(node1) == null || graph.get(node2) == null)
+      {
+        throw new NoSuchElementException("not[null]");
+    }
+    for ( Edge<T> e : edgeFromNode1){
+      if(e.getDestination().equals(node2)){
+        return e;
+      }
+    }
+    return null;
+    //throw new UnsupportedOperationException("Unimplemented method 'getEdgeBetween'");
   }
 
   @Override
   public Iterator<T> iterator() {
-    throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+    Iterator<T> it = graph.keySet().iterator();
+
+    return it;
+    //throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
 
