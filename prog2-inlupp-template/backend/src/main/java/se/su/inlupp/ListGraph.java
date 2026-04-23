@@ -2,12 +2,12 @@ package se.su.inlupp;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.List;
-import java.util.HashMap;
+import java.util.Set;
 
 public class ListGraph<T> implements Graph<T> {
 
@@ -22,7 +22,6 @@ public class ListGraph<T> implements Graph<T> {
   @Override
   public void remove(T node) {
     if(!hasNode(node)){  //om noden är false skickas meddelande
-      node = null;
       throw new NoSuchElementException("Noden finns inte");
     } else {
       graph.remove(node);  //säker ett dåligt sätt att göra.
@@ -30,6 +29,8 @@ public class ListGraph<T> implements Graph<T> {
     List<Edge<T>> kanter = graph.get(node); 
     // gå igenom alla kanter
     
+    //loppa igenom alla noder i "node" sen kan man ta bort den.
+
       // Gå till destinationen av kanten och ta bort kanten till node
     // ta bort alla kanter
     // ta bort nod allt i remove.
@@ -42,7 +43,7 @@ public class ListGraph<T> implements Graph<T> {
   @Override
   public boolean hasNode(T node) {
     return graph.containsKey(node);  //kollar om mappen har en nyckel och returnerar true om det finns annars false
-    
+
     
     //throw new UnsupportedOperationException("Unimplemented method 'hasNode'");
   }
@@ -51,14 +52,14 @@ public class ListGraph<T> implements Graph<T> {
   public void connect(T node1, T node2, String name, int weight) {
     this.add(node1); // guarantee that cities.get(a) returns a set
     this.add(node2);
-
+//skapa en klass som implementerar gränsnittet edge.
     List<Edge<T>> aEdges = graph.get(node1);
     List<Edge<T>> bEdges = graph.get(node2);
 
-    //aEdges.add(new Edge<T>(node2, name, weight));   //vet inte vad som gör att det inte funkar
-    //bEdges.add(new Edge<T>(node1, name, weight));
+    aEdges.add(new MyEdge<T>(node2, name, weight));   //vet inte vad som gör att det inte funkar
+    bEdges.add(new MyEdge<T>(node1, name, weight));
     
-    throw new UnsupportedOperationException("Unimplemented method 'connect'");
+    //throw new UnsupportedOperationException("Unimplemented method 'connect'");
   }
 
   @Override
@@ -93,4 +94,3 @@ public class ListGraph<T> implements Graph<T> {
     throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
-
