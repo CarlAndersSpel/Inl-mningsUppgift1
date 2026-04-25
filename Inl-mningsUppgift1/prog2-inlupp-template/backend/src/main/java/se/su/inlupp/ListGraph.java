@@ -117,6 +117,26 @@ public class ListGraph<T> implements Graph<T> {
 
   @Override
   public void setConnectionWeight(T node1, T node2, int weight) {
+
+    if (weight < 0){
+      throw new IllegalArgumentException();
+    }
+
+    if(getEdgeBetween(node1, node2) == null || getEdgeBetween(node2, node1) == null)
+    {
+      throw new NoSuchElementException();
+  } 
+  //lägga till den nya vikten i graph
+ 
+    List<Edge<T>> aEdges = graph.get(node1);
+    List<Edge<T>> bEdges = graph.get(node2);
+    List<Edge<T>> wEdges = graph.get(weight);
+
+    int newWeight;
+   
+    //aEdges.add(new MyEdge<T>(node2, weight));   //vet inte vad som gör att det inte funkar
+   // bEdges.add(new MyEdge<T>(node1,weight));
+
     throw new UnsupportedOperationException("Unimplemented method 'setConnectionWeight'");
   }
 
@@ -134,11 +154,7 @@ public class ListGraph<T> implements Graph<T> {
     if(graph.get(node) == null){
       throw new NoSuchElementException("not[null]");
     }
-
-
         return theEdge;
-
-
   }
 
   @Override
@@ -165,4 +181,6 @@ public class ListGraph<T> implements Graph<T> {
     //throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
 }
+
+
 
