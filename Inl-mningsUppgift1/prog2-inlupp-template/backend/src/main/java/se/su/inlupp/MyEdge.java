@@ -44,3 +44,6 @@ public class MyEdge<T> implements Edge<T>{
     return sb.toString();
   }
 }  
+
+     //behövs konstruktor
+
