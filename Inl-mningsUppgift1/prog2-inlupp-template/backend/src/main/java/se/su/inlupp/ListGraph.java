@@ -118,26 +118,29 @@ public class ListGraph<T> implements Graph<T> {
   @Override
   public void setConnectionWeight(T node1, T node2, int weight) {
 
-    if (weight < 0){
+    /*if (weight < 0){
       throw new IllegalArgumentException();
-    }
+    }*/
 
     if(getEdgeBetween(node1, node2) == null || getEdgeBetween(node2, node1) == null)
     {
       throw new NoSuchElementException();
-  } 
+    } 
   //lägga till den nya vikten i graph
  
-    List<Edge<T>> aEdges = graph.get(node1);
+    /*List<Edge<T>> aEdges = graph.get(node1);
     List<Edge<T>> bEdges = graph.get(node2);
-    List<Edge<T>> wEdges = graph.get(weight);
+    List<Edge<T>> wEdges = graph.get(weight);*/
+    
+    getEdgeBetween(node1, node2).setWeight(weight);
+    getEdgeBetween(node2, node1).setWeight(weight);
+     
 
-    int newWeight;
    
     //aEdges.add(new MyEdge<T>(node2, weight));   //vet inte vad som gör att det inte funkar
    // bEdges.add(new MyEdge<T>(node1,weight));
 
-    throw new UnsupportedOperationException("Unimplemented method 'setConnectionWeight'");
+    //throw new UnsupportedOperationException("Unimplemented method 'setConnectionWeight'");
   }
 
   @Override
@@ -180,7 +183,25 @@ public class ListGraph<T> implements Graph<T> {
     return it;
     //throw new UnsupportedOperationException("Unimplemented method 'iterator'");
   }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    for (T node : getNodes())
+    {
+    sb.append(node);
+    for (Edge<T> edge : getEdgesFrom(node)){
+      sb.append(edge);
+      //sb.append("\n");
+    }
+  }
+
+  return sb.toString();
+
+  }
+
+
+
 }
-
-
 
