@@ -9,34 +9,37 @@ import java.util.Map;
 
 public class BFSPathFinder<T> implements PathFinder<T> {
 
-    final Map<T, Boolean> isVisited = new HashMap<>();
-      MyPath<T> path;
+    /*final Map<T, Boolean> isVisited = new HashMap<>();
+    T finalPath;
+    MyPath<T> path = new MyPath<>(finalPath);
       boolean found = false;
+      LinkedList<T> hello = new LinkedList<>();*/
+        final Map<T, Boolean> isVisited = new HashMap<>();
+        MyPath<T> path;
+        boolean found = false;
 
-  @Override
-  public Path<T> findPath(Graph<T> graph, T from, T to) {
+      @Override
+      public Path<T> findPath(Graph<T> graph, T from, T to) {
+
+    //MyPath<T> path = new MyPath<>(finalPath);
     //try {
-    Map<T, T> connections = new HashMap<>();
-    connections.put(from, null);
-    LinkedList<T> queue = new LinkedList<>();  //an arraylist istället kanske
 
-   // path = new MyPath<>(from);
-    //bfs();
-    queue.add(from);
-    while (!queue.isEmpty() || !connections.containsKey(to)){
+      for ( T node : graph.getNodes()){
+        isVisited.put(node, false);
+      }
+    
+      path = new MyPath<>(from);
+      bfs(graph, from, to);
+      if(!isVisited.get(to))
+      {
+      return null;
+      }
+      return path;
 
-      T current = queue.poll();//tar själva kön och lägger in och stryker bort.
-   for(Edge<T> edge : graph.getEdgesFrom(current)) {
-         T next = edge.getDestination();
-         if(!connections.containsKey(to) || !connections.containsKey(next)){
-          connections.put(next, current);
-          queue.add(next);
-         } 
-        }
-   }
-      MyPath<T> path = new MyPath<T>(from);
 
-      T current  = to;
+      /*MyPath<T> path = new MyPath<T>(from);
+
+       T current  = to;
       while(current != null || !current.equals(from) ){
         T next = connections.get(current);
 
@@ -46,9 +49,52 @@ public class BFSPathFinder<T> implements PathFinder<T> {
       } 
       //T next = new getDestination<>(); 
       // for ( Edge<T> edge : graph.getEdgesFrom(to))
-
-      return path;
+      
+      return path; */
     }
+    
+    private List<T> bfs(Graph<T> graph, T from, T to) {
+        List<T> edges = new LinkedList<>();
+    T finalPath;
+    if( from.equals(to)) {
+       return null;
+    }
+  //List<T> edges = new LinkedList<>();
+    Map<T, T> connections = new HashMap<>();
+    connections.put(from, null);
+    LinkedList<T> queue = new LinkedList<>();  //an arraylist istället kanske
+    List<Edge<T>> finalQueue;
+    
+
+   // path = new MyPath<>(from);
+    //bfs();
+    queue.add(from);
+    while (!queue.isEmpty() || !connections.containsKey(to)){
+
+     // T current = queue.poll();//tar själva kön och lägger in och stryker bort.
+      finalPath = queue.poll();
+      //edges = finalQueue.remove();    //whitch methods are just in list in java to remove elements.
+      //Path<T> path = queue.poll();
+   for(Edge<T> edge : graph.getEdgesFrom(finalPath)) {
+         T next = edge.getDestination();
+         if(!next.equals(to) || !connections.containsKey(edge)){
+           connections.put(next, finalPath);
+           queue.add(next);
+          } else {
+
+            queue.add(finalPath);
+            //return new Path<> finalPath;
+          }
+        }
+        queue.remove(finalPath);
+        return null;
+      }
+    return queue;
+
+
+
+        
+      }
 
     //return null;
 
@@ -86,5 +132,8 @@ public class BFSPathFinder<T> implements PathFinder<T> {
    //return new PathClass<T>(from, to, edges, nodes);
    //} catch (nosuchelementexception e ) { return null;}
 }*/
+
+
+
 
 
