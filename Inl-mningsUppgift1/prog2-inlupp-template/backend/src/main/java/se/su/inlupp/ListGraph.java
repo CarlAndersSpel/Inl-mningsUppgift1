@@ -56,7 +56,11 @@ public class ListGraph<T> implements Graph<T> {
   @Override
   public void connect(T node1, T node2, String name, int weight) {
       
-  if(graph.get(node1) == null || graph.get(node2) == null)
+  /*if(graph.get(node1) == null || graph.get(node2) == null)
+    {
+      throw new NoSuchElementException("not[null]");
+  }*/
+ if(!graph.containsKey(node1) || !graph.containsKey(node2))
     {
       throw new NoSuchElementException("not[null]");
   }
@@ -69,8 +73,8 @@ public class ListGraph<T> implements Graph<T> {
       throw new IllegalArgumentException();
     }
 
-    this.add(node1); 
-    this.add(node2);
+   // this.add(node1); 
+    //this.add(node2);
 //skapa en klass som implementerar gränsnittet edge.
     List<Edge<T>> aEdges = graph.get(node1);
     List<Edge<T>> bEdges = graph.get(node2);
@@ -153,20 +157,24 @@ public class ListGraph<T> implements Graph<T> {
   @Override
   public Collection<Edge<T>> getEdgesFrom(T node) {
     //graph.
-    List<Edge<T>> theEdge = graph.get(node);
-    if(graph.get(node) == null){
-      throw new NoSuchElementException("not[null]");
+    if(!graph.containsKey(node)){
+      throw new NoSuchElementException("not[null]");  //
     }
+    List<Edge<T>> theEdge = graph.get(node);
         return theEdge;
   }
 
   @Override
   public Edge<T> getEdgeBetween(T node1, T node2) {
-    List<Edge<T>> edgeFromNode1 = graph.get(node1);
-    if(graph.get(node1) == null || graph.get(node2) == null)
+    /*if(graph.get(node1) == null || graph.get(node2) == null)
       {
-        throw new NoSuchElementException("not[null]");
+        throw new NoSuchElementException("not[null]");  //här kommer bfs path;
+      }*/
+      if(!graph.containsKey(node1) || !graph.containsKey(node2))
+    {
+      throw new NoSuchElementException("not[null]");
     }
+      List<Edge<T>> edgeFromNode1 = graph.get(node1);
     for ( Edge<T> e : edgeFromNode1){
       if(e.getDestination().equals(node2)){
         return e;
@@ -204,4 +212,3 @@ public class ListGraph<T> implements Graph<T> {
 
 
 }
-

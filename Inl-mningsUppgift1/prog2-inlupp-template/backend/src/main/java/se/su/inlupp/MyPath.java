@@ -22,12 +22,22 @@ public class MyPath<T> implements Path<T>{
   public void removeLast() {
     edges.removeLast();
   }
-    
+
+  /* public Iterator<T> iterator() {
+    Iterator<T> it = graph.keySet().iterator(); //try to extrakt informaation and export it in a different method. thru a middle method.
+
+    return it;
+  }*/
+
 @Override
 public T getStart(){
     return startNode;  //returnerar startnode 
 }
     
+  public void addFirst(Edge<T> edge) {
+    edges.addFirst(edge); //lägger till edge som är en väg
+  }
+
 @Override
 public T getEnd(){
     return edges.get(edges.size()-1).getDestination(); //den tar den sista noden i Path<T> listan
@@ -35,7 +45,14 @@ public T getEnd(){
 
 @Override
 public int getTotalWeight(){
-    return 100000;
+  //edges.get(edges.setConnectionWeight());
+
+int sum = 0;
+  for ( Edge<T> edge : edges ){
+    edge.getWeight();
+    sum += edge.getWeight();
+  }
+    return sum;
 }
 
 @Override
@@ -45,6 +62,9 @@ public List<Edge<T>> getEdges(){
 
 @Override
 public List<T> getNodes(){
+  //ListGraph.getNodes();
+  //graph.getNodes();
+  
     return null;
 }
 
