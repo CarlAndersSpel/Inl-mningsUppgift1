@@ -11,7 +11,7 @@ public class MyEdge<T> implements Edge<T>{
     this.name = name;
     this.weight = weight;
   }
-
+//attach imagas to nodes or upp 
   public T getDestination() {
     return destination;
   }
