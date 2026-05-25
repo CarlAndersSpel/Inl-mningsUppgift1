@@ -36,6 +36,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseButton;
 
@@ -56,25 +57,32 @@ public class Gui extends Application {
   
   public class Node extends BorderPane {
     Button destroyButton = new Button("Förstör");
+    Button makeConnectionButton = new Button("Skapa koppling");
+    Button addConnection = new Button("lägg en koppling");
+    private TextField weightEdgeText = new TextField();
+    private TextField nameEdgeText = new TextField();
     String name;
-                Dialog<Void> nodContain;
+    Dialog<Void> nodContain;
+    Dialog<Void> conContain;
+    static String selectedNode;
+    
          public Node(String name, double x, double y){
-          this.name = name;
-         relocate(x, y);
-        //Pane titlebar = new Pane();
-        //setCenter(titlebar);
-      //  Text nodText = new Text(50, 40, "name");
-        setCenter(nodeText);
-        //titlebar.setPrefSize(50,40);
-
-        setOnMousePressed(new StartDragHandler());
-        setOnMousePressed(new ClickHandler());
-        setOnMouseDragged(new DragHandler());
-
-        destroyButton.setOnAction(
-          ev -> {
-          if(graph.hasNode(name)){
-            graph.remove(name);
+           this.name = name;
+           relocate(x, y);
+           //Pane titlebar = new Pane();
+           //setCenter(titlebar);
+           //  Text nodText = new Text(50, 40, "name");
+           setCenter(nodeText);
+           //titlebar.setPrefSize(50,40);
+           
+           setOnMousePressed(new StartDragHandler());
+           setOnMousePressed(new ClickHandler());
+           setOnMouseDragged(new DragHandler());
+           
+         destroyButton.setOnAction(
+           ev -> {
+             if(graph.hasNode(name)){
+               graph.remove(name);
             center.getChildren().remove(nameList.get(name));
             nameList.remove(name);
             //center.getChildren().remove();
@@ -82,15 +90,47 @@ public class Gui extends Application {
             System.out.println("varfor funkar den?");
             textError.setText("");
             nodContain.close();
-
+            
             return;
           }
           
           textError.setText("Error: Location doesn't exist");
           System.out.println("den INTE funkar?");
+        });
+        
+        
+        makeConnectionButton.setOnAction(
+          ev -> {
+            selectedNode = name;
+            
+            setOnMousePressed(new ConnectionClickHandler());
+            nodContain.close();
+            return;
           });
-         }
 
+
+          addConnection.setOnAction(
+            ev -> {
+              String nameEdge = nameEdgeText.getText().toUpperCase();
+              int weightEdge = Integer.parseInt(weightEdgeText.getText());  //gör från en textfield till en integer
+              graph.connect(selectedNode, name, nameEdge, weightEdge);
+              System.out.print("Linjen funkar!");
+              setOnMousePressed(new ConnectionClickHandler());
+              nameEdgeText.clear();
+              weightEdgeText.clear();
+              conContain.close();
+              return;
+            });
+
+
+
+
+
+        }
+
+        
+
+        
         class StartDragHandler implements EventHandler<MouseEvent> {
         public void handle(MouseEvent event) {
           System.out.print("DEN BÖRJAR DRA");
@@ -98,6 +138,33 @@ public class Gui extends Application {
               startY = event.getY();
         }
     }
+
+    class ConnectionClickHandler implements EventHandler<MouseEvent> {
+        public void handle(MouseEvent event) {
+          if(event.getButton() == MouseButton.SECONDARY){
+           VBox conBox = new VBox(10);
+
+
+         //  MyEdge<Node> edge = new MyEdge<Node>(selectedNode, );
+            
+            conContain = new Dialog<>();
+            Text weightEdgeName = new Text("weight");
+            Text nameEdgeName = new Text("name");
+            conContain.getDialogPane().setContent(conBox);     
+            conBox.getChildren().add(addConnection);
+            conBox.getChildren().add(weightEdgeName);
+            conBox.getChildren().add(weightEdgeText);
+            conBox.getChildren().add(nameEdgeName);
+            conBox.getChildren().add(nameEdgeText);
+
+            conContain.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+            conContain.showAndWait();
+          }
+          return;
+
+        }
+    }
+
 
     class ClickHandler implements EventHandler<MouseEvent> {
         public void handle(MouseEvent event) {
@@ -110,6 +177,7 @@ public class Gui extends Application {
             nodContain.setContentText(name);         
             nodBox.getChildren().add(testName);
             nodBox.getChildren().add(destroyButton);
+            nodBox.getChildren().add(makeConnectionButton);
             nodContain.getDialogPane().setContent(nodBox);
             nodContain.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
             nodContain.showAndWait();
@@ -124,11 +192,19 @@ public class Gui extends Application {
     class DragHandler implements EventHandler<MouseEvent> {
 
         public void handle(MouseEvent event) {
+          if(event.getButton() == MouseButton.PRIMARY){         
           System.out.print("DEN DRAR NU");
             double newX = getLayoutX() + event.getX() - startX;
             double newY = getLayoutY() + event.getY() - startY;
+            if (getLayoutX() + event.getX() - startX < 0){
+              newX = 0;
+            }
+            if (getLayoutY() + event.getY() - startY < 0){
+              newY = 0;
+            }
             relocate(newX, newY);
         }
+      }
     }
   }
 
@@ -358,4 +434,3 @@ public class Gui extends Application {
   }//första verision att göra allt i samma klass och om denblir för mycket bryt upp den till mindre mindre klasser
   //lägger ut knappar och vart ska graphen "att lev"/komma åt. vad gör varje knapp skapa en hanterare för skärmen.
 }
-
