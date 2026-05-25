@@ -39,7 +39,7 @@ public class DFSPathFinder<T> implements PathFinder<T> {
       return;
     }
   for ( Edge<T> edge : graph.getEdgesFrom(node)){
-    if(!isVisited.get(edge.getDestination())){  //om en granne till, en nod inte är besökt än. så anropaas den destinationen. i if satsen.
+    if(!isVisited.get(edge.getDestination())){  //om en granne till, en nod inte är besökt än. så anropas den destinationen. i if satsen.
       path.addEdge(edge);  //jag är i den här noden om grannen inte är besökt än så jag kommer till grannen genom den här noden.
       dfs(graph, edge.getDestination(), to);   //anropar sig själv vilket skapar rekursion
       if (found) return;

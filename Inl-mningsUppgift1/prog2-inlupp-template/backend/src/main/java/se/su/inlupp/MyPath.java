@@ -10,6 +10,7 @@ public class MyPath<T> implements Path<T>{
 
   private T startNode;
   private final List<Edge<T>> edges = new ArrayList<>();
+  private final List<T> nodes = new ArrayList<>();
 
   public MyPath(T startNode) {
     this.startNode = startNode;
@@ -62,20 +63,23 @@ public List<Edge<T>> getEdges(){
 
 @Override
 public List<T> getNodes(){
-  //ListGraph.getNodes();
-  //graph.getNodes();
-  
-    return null;
+nodes.add(startNode);
+int counter = edges.size();
+for (int i = 0; counter > i; i++){
+  nodes.add(edges.get(i).getDestination());
+  //edges.add(null);
+}
+    return nodes;
 }
 
 @Override
 public Iterator<Edge<T>> iterator(){
-
-    return null;
+     Iterator<Edge<T>> it = edges.iterator();
+    return it;
 }
 
 @Override
 public String toString(){
-    return null;
+    return "" + getStart() + getEnd() + getEdges() + getTotalWeight();
 }
 }
