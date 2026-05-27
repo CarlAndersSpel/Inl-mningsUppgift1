@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -48,8 +49,11 @@ public class Gui extends Application {
   // private FXForm test;
   private List<File> imageFiles = new ArrayList<>();
   private List<Node> chosenNodes = new ArrayList<>();  //kontrollerar att om det redan finns två noder markerade så gör den ingenting annars lägger till clickNodes(clickhandler för noderna) till chosenNodes och om man klickar på en nod och den redan finns i chosenNodes så tas den bort från chosenNodes
+  private HashSet<Edge> edges = new HashSet<>();
+  private final Map<String, Edge> edgesTest = new HashMap<>();
   private TextField aText = new TextField();
   private Pane center;
+  private ImageView imageView;
   private double startX, startY;
   Button makeNodeButton, saveButton;
   private Text nodeText;
@@ -66,12 +70,14 @@ public class Gui extends Application {
   //private final Map<String,String> connectedCheck = new HashMap<>();
 
   public class Node extends BorderPane {
+    private HashSet<Edge> edgeSet = new HashSet<>();
     Button destroyButton = new Button("Förstör");
     Button makeSelectionButton = new Button("Markera plats");
     String name;
     Circle sprite;
     double x;
     double y;
+    
          public Node(String name, double x, double y, Circle sprite){
            this.name = name;
            this.sprite = sprite;
@@ -134,16 +140,36 @@ public class Gui extends Application {
             ev -> {
               String nameEdge = nameEdgeText.getText().toUpperCase();
               int weightEdge = Integer.parseInt(weightEdgeText.getText());  //gör från en textfield till en integer
+              if(edgesTest.containsKey(nameEdge)){
+               textError.setText("Error: Name already exists");
+               return;
+              }
               graph.connect(chosenNodes.get(0).name, chosenNodes.get(1).name, nameEdge, weightEdge); //vi tar namnet från noden på plats noll och plats ett på listan och lägger in den och skapar en edge
               chosenNodes.get(0).sprite.setFill(Color.RED);
               chosenNodes.get(1).sprite.setFill(Color.RED);
               Line line = new Line();
-              center.getChildren().add(line);
               line.setFill(Color.WHITE);
-              line.setStartX(chosenNodes.get(0).x);
+              line.startXProperty().bind(chosenNodes.get(0).layoutXProperty());
+              line.startYProperty().bind(chosenNodes.get(0).layoutYProperty());
+              line.endXProperty().bind(chosenNodes.get(1).layoutXProperty());
+              line.endYProperty().bind(chosenNodes.get(1).layoutYProperty());
+              graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name);
+              Edge edge = new Edge(nameEdge, weightEdge, chosenNodes.get(0), chosenNodes.get(1), line);
+              edge.getChildren().add(line);
+              center.getChildren().add(edge);
+              edge.toBack();
+              imageView.toBack();
+              edges.add(edge);
+              edgesTest.put(nameEdge, edge);
+              System.out.print(edge);
+              System.out.print(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name));
+             // chosenNodes.get(0).edgeSet.add(edge);
+             // chosenNodes.get(1).edgeSet.add(edge);
+              
+           /* line.setStartX(chosenNodes.get(0).x);
               line.setStartY(chosenNodes.get(0).y);
               line.setEndX(chosenNodes.get(1).x);
-              line.setEndY(chosenNodes.get(1).y);
+              line.setEndY(chosenNodes.get(1).y);*/
              // connectedCheck.put(chosenNodes.get(0).name, chosenNodes.get(1).name);
               System.out.print("Linjen funkar!");
               chosenNodes.clear();
@@ -164,7 +190,7 @@ public class Gui extends Application {
         class StartDragHandler implements EventHandler<MouseEvent> {
           public void handle(MouseEvent event) {
             System.out.print("DEN BÖRJAR DRA");
-            startX = event.getX();
+            startX = event.getX();   
             startY = event.getY();
           }
         }
@@ -201,16 +227,19 @@ public class Gui extends Application {
       
       public void handle(MouseEvent event) {
         if(event.getButton() == MouseButton.PRIMARY){         
-          System.out.print("DEN DRAR NU");
-          double newX = getLayoutX() + event.getX() - startX;
-          double newY = getLayoutY() + event.getY() - startY;
+          //System.out.print("DEN DRAR NU");
+          double newX = getLayoutX() + event.getX() - startX; //startx is starting position of mouse and getX is current position of mouse
+          double newY = getLayoutY() + event.getY() - startY; 
+         // System.out.print(newX);
           if (getLayoutX() + event.getX() - startX < 0){
+            System.out.print(newX);
             newX = 0;
           }
           if (getLayoutY() + event.getY() - startY < 0){
+            System.out.print(newY);
             newY = 0;
           }
-          relocate(newX, newY);
+          relocate(newX, newY);   //video games engine check every frame         
           x = newX;
           y = newY;
         }
@@ -218,7 +247,27 @@ public class Gui extends Application {
     }
   }
   
-  
+  public class Edge extends BorderPane {
+  private final HashSet<Node> nodeSet = new HashSet<>();
+  String name;
+  Node node1, node2;
+  Line sprite;
+  int weight;
+
+          public Edge(String name, int weight, Node node1,Node node2, Line sprite){
+           this.name = name;
+           this.weight = weight;
+           this.node1 = node1;
+           this.node2 = node2;
+           this.sprite = sprite;
+
+
+           nodeSet.add(node1);
+           nodeSet.add(node2);
+          }
+
+
+  }
   
   
   public void start(Stage stage) {
@@ -265,7 +314,7 @@ public class Gui extends Application {
     
     Image image = new Image(getClass().getResourceAsStream("/images/bg_dark_wood.jpg"));
     //System.out.println(getClass().getResource("/images/bg_dark_wood.jpg"));
-    ImageView imageView = new ImageView(image);
+    imageView = new ImageView(image);
     center.getChildren().add(imageView);
     //center.getChildren().add(fullScreen);
     
@@ -350,9 +399,13 @@ public class Gui extends Application {
           ev -> {  
           if(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name) != null || graph.getEdgeBetween(chosenNodes.get(1).name, chosenNodes.get(0).name) != null){
           //  if()
-            graph.disconnect(chosenNodes.get(0).name, chosenNodes.get(1).name);
+          //edges.remove(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name));
+          center.getChildren().remove(edgesTest.get(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name).getName()));
+          edgesTest.remove((graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name).getName()));
+           graph.disconnect(chosenNodes.get(0).name, chosenNodes.get(1).name);
            chosenNodes.get(0).sprite.setFill(Color.RED);
            chosenNodes.get(1).sprite.setFill(Color.RED);
+           //chosenNodes.get(0).edgeSet.remove();
            // connectedCheck.remove();
             chosenNodes.clear();
             textError.setText("");
@@ -432,7 +485,7 @@ public class Gui extends Application {
                 Text nodText = new Text();
                 if(name.length() > 5){
                   
-                  nodText = new Text( name.substring(0,5) + "...");
+                  nodText = new Text(name.substring(0,5) + "...");
                 }else {
 
                   nodText = new Text(name);
@@ -496,4 +549,3 @@ public class Gui extends Application {
   }//första verision att göra allt i samma klass och om denblir för mycket bryt upp den till mindre mindre klasser
   //lägger ut knappar och vart ska graphen "att lev"/komma åt. vad gör varje knapp skapa en hanterare för skärmen.
 }
-
