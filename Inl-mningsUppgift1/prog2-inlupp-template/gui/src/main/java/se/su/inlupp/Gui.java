@@ -24,10 +24,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -49,8 +51,8 @@ public class Gui extends Application {
   // private FXForm test;
   private List<File> imageFiles = new ArrayList<>();
   private List<Node> chosenNodes = new ArrayList<>();  //kontrollerar att om det redan finns två noder markerade så gör den ingenting annars lägger till clickNodes(clickhandler för noderna) till chosenNodes och om man klickar på en nod och den redan finns i chosenNodes så tas den bort från chosenNodes
-  private HashSet<Edge> edges = new HashSet<>();
-  private final Map<String, Edge> edgesTest = new HashMap<>();
+  private HashSet<Edge1> edges = new HashSet<>();
+  private final Map<String, Edge1> edgesTest = new HashMap<>();
   private TextField aText = new TextField();
   private Pane center;
   private ImageView imageView;
@@ -70,7 +72,7 @@ public class Gui extends Application {
   //private final Map<String,String> connectedCheck = new HashMap<>();
 
   public class Node extends BorderPane {
-    private HashSet<Edge> edgeSet = new HashSet<>();
+    private HashSet<Edge1> edgeSet = new HashSet<>();
     Button destroyButton = new Button("Förstör");
     Button makeSelectionButton = new Button("Markera plats");
     String name;
@@ -97,15 +99,25 @@ public class Gui extends Application {
          destroyButton.setOnAction(
            ev -> {
              if(graph.hasNode(name)){
-               graph.remove(name);
+                if(graph.getEdgesFrom(name) != null){
+         // center.getChildren().remove(edgesTest.get(graph.getEdgesFrom(name)));
+                  graph.getEdgesFrom(name);
+                  for(Edge<String> e : graph.getEdgesFrom(name)){
+                    center.getChildren().remove(edgesTest.get(e.getName()));
+                    edges.remove(edgesTest.get(e.getName()));
+                    edgesTest.remove(e.getName());
+                    //graph.disconnect(name, hej.getDestination());
+                  }
+                } 
+            graph.remove(name);
             center.getChildren().remove(nameList.get(name));
             nameList.remove(name);
+
             //center.getChildren().remove();
             //nodeText.setText("name");
             System.out.println("varfor funkar den?");
             textError.setText("");
             nodContain.close();
-            
             return;
           }
           //man kan bara ha de två senaste noderna man kan skapa och man måste trycka på mae connections för att skapa just de senaste kopplingen mellan noder.
@@ -120,13 +132,19 @@ public class Gui extends Application {
             if(chosenNodes.contains(nameList.get(name))){
               chosenNodes.remove(nameList.get(name));
               sprite.setFill(Color.RED);
+              if(chosenNodes.size() >= 1){
+                chosenNodes.get(0).sprite.setFill(Color.GREEN);
+              }
             }else {
               if(chosenNodes.size() == 2){
                 chosenNodes.get(0).sprite.setFill(Color.RED);
                 chosenNodes.remove(0);
               }
               chosenNodes.add(nameList.get(name));
-              sprite.setFill(Color.GREEN);
+              if(chosenNodes.size() == 2){  
+                chosenNodes.get(1).sprite.setFill(Color.BLUE);
+              }
+              chosenNodes.get(0).sprite.setFill(Color.GREEN);
       
               
               
@@ -138,6 +156,10 @@ public class Gui extends Application {
 
           addConnection.setOnAction(
             ev -> {
+              if(nameEdgeText.getText().isEmpty() || weightEdgeText.getText().isEmpty()){
+               textError.setText("Error: TextField is empty");    
+               return;          
+              }
               String nameEdge = nameEdgeText.getText().toUpperCase();
               int weightEdge = Integer.parseInt(weightEdgeText.getText());  //gör från en textfield till en integer
               if(edgesTest.containsKey(nameEdge)){
@@ -148,14 +170,20 @@ public class Gui extends Application {
               chosenNodes.get(0).sprite.setFill(Color.RED);
               chosenNodes.get(1).sprite.setFill(Color.RED);
               Line line = new Line();
-              line.setFill(Color.WHITE);
+              //line.setStyle("-fx-stroke: blue;"); 
               line.startXProperty().bind(chosenNodes.get(0).layoutXProperty());
               line.startYProperty().bind(chosenNodes.get(0).layoutYProperty());
               line.endXProperty().bind(chosenNodes.get(1).layoutXProperty());
               line.endYProperty().bind(chosenNodes.get(1).layoutYProperty());
               graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name);
-              Edge edge = new Edge(nameEdge, weightEdge, chosenNodes.get(0), chosenNodes.get(1), line);
+              Edge1 edge = new Edge1(nameEdge, weightEdge, chosenNodes.get(0), chosenNodes.get(1), line);
+              Text testEdgelabel = new Text("Namn: " + nameEdge + "\nKostnad: " + weightEdge);
+              testEdgelabel.layoutXProperty().bind(line.startXProperty().add(line.endXProperty()).divide(2).subtract(20));
+              testEdgelabel.layoutYProperty().bind(line.startYProperty().add(line.endYProperty()).divide(2).subtract(5));
+              edge.getChildren().add(testEdgelabel);
               edge.getChildren().add(line);
+              testEdgelabel.setFill(Color.WHITE);
+              testEdgelabel.toFront();
               center.getChildren().add(edge);
               edge.toBack();
               imageView.toBack();
@@ -176,6 +204,7 @@ public class Gui extends Application {
               nameEdgeText.clear();
               weightEdgeText.clear();
               conContain.close();
+              textError.setText("");
               return;
             });
 
@@ -247,14 +276,14 @@ public class Gui extends Application {
     }
   }
   
-  public class Edge extends BorderPane {
+  public class Edge1 extends BorderPane {
   private final HashSet<Node> nodeSet = new HashSet<>();
   String name;
   Node node1, node2;
   Line sprite;
   int weight;
 
-          public Edge(String name, int weight, Node node1,Node node2, Line sprite){
+          public Edge1(String name, int weight, Node node1,Node node2, Line sprite){
            this.name = name;
            this.weight = weight;
            this.node1 = node1;
@@ -281,7 +310,7 @@ public class Gui extends Application {
     Button button2 = new Button("boka");
     Button button3 = new Button("File");
     Button button4 = new Button("spara");
-    Button button5 = new Button("Sök");
+    Button searchWay = new Button("Sök väg");
     Button button = new Button("Skicka");
     
     makeNodeButton = new Button("Make Node");
@@ -290,6 +319,12 @@ public class Gui extends Application {
     Button makeConnections = new Button("Make Connect");
     Button removeConnections = new Button("Remove Connect");
     Button button8 = new Button("Manage");
+    RadioButton bfsWay = new RadioButton("bfs");
+    RadioButton dfsWay = new RadioButton("dfs");
+
+    ToggleGroup witchWay = new ToggleGroup();
+    bfsWay.setToggleGroup(witchWay);
+    dfsWay.setToggleGroup(witchWay);
     
     //saveButton.setOnAction(new SaveButtonHandler());
     
@@ -299,7 +334,7 @@ public class Gui extends Application {
     button2.setBackground(Background.fill(Color.BLANCHEDALMOND));
     button3.setBackground(Background.fill(Color.CHOCOLATE));
     button4.setBackground(Background.fill(Color.BLUEVIOLET));
-    button5.setBackground(Background.fill(Color.YELLOW));
+    searchWay.setBackground(Background.fill(Color.YELLOW));
     
     
     makeConnections.setBackground(Background.fill(Color.BLUEVIOLET));
@@ -339,7 +374,6 @@ public class Gui extends Application {
     
     
     buttonRow.getChildren().add(button3); 
-    buttonRow.getChildren().add(button5);
     buttonRow.getChildren().add(button2);
     buttonRow.getChildren().add(aText);
     buttonRow.getChildren().add(button);
@@ -351,6 +385,9 @@ public class Gui extends Application {
     buttonOtherRow.getChildren().add(removeConnections);
     buttonOtherRow.getChildren().add(button8);
     buttonOtherRow.getChildren().add(removeNodeButton);
+    buttonOtherRow.getChildren().add(searchWay);
+    buttonOtherRow.getChildren().add(bfsWay);
+    buttonOtherRow.getChildren().add(dfsWay);
     ErrorRow.getChildren().add(textError);
     
     
@@ -360,6 +397,51 @@ public class Gui extends Application {
       });
       
       
+    searchWay.setOnAction(
+      ev -> {    
+      /* if (!graph.getNodes().contains(chosenNodes.get(0).name) || !graph.getNodes().contains(chosenNodes.get(1).name)) {
+          textError.setText("Error: Destinationen sitter inte ihop");
+          return;
+         }*/  //kanske funkar.
+        if(chosenNodes.size() == 2) {
+          for(Edge1 a : edges){
+            a.sprite.setStyle("-fx-stroke: black;");
+          }
+          RadioButton bw =(RadioButton)witchWay.getSelectedToggle();
+          if(bw == null){
+            textError.setText("Error: ingen sökväg vald");
+            return;
+          }
+          if(bw.getText().equals("bfs")){ 
+            PathFinder<String> bfs = new BFSPathFinder<>();
+            Path<String> path = bfs.findPath(graph, chosenNodes.get(0).name, chosenNodes.get(1).name);    
+            for (Edge<String> b : path.getEdges()){
+              if(edgesTest.keySet().contains(b.getName())){
+             edgesTest.get(b.getName()).sprite.setStyle("-fx-stroke: blue;");
+              }
+              }
+                textError.setText("");
+               return;
+              }else if(bw.getText().equals("dfs")){
+            PathFinder<String> dfs = new DFSPathFinder<>();    
+            Path<String> path = dfs.findPath(graph, chosenNodes.get(0).name, chosenNodes.get(1).name);   
+            for (Edge<String> b : path.getEdges()){
+              if(edgesTest.keySet().contains(b.getName())){
+                edgesTest.get(b.getName()).sprite.setStyle("-fx-stroke: blue;");
+              }
+            }  
+          textError.setText("");
+          return;
+          }
+          //om dfs gör det 
+          
+          
+          
+        }
+        textError.setText("Error: ingen destinationer vald");
+      });
+
+
       makeNodeButton.setOnAction(
         ev -> {
           center.setOnMouseClicked(new ClickHandler());
@@ -401,6 +483,7 @@ public class Gui extends Application {
           //  if()
           //edges.remove(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name));
           center.getChildren().remove(edgesTest.get(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name).getName()));
+          edges.remove(edgesTest.get(graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name).getName()));
           edgesTest.remove((graph.getEdgeBetween(chosenNodes.get(0).name, chosenNodes.get(1).name).getName()));
            graph.disconnect(chosenNodes.get(0).name, chosenNodes.get(1).name);
            chosenNodes.get(0).sprite.setFill(Color.RED);
@@ -418,19 +501,29 @@ public class Gui extends Application {
         removeNodeButton.setOnAction(
           ev -> {
             String name = aText.getText().toUpperCase();   //byta nameField till aText
-            if(graph.hasNode(name)){
-              graph.remove(name);
-              center.getChildren().remove(nameList.get(name));
-              nameList.remove(name);
-              //center.getChildren().remove();
-              //nodeText.setText("name");
-              System.out.println("varfor funkar den?");
-              textError.setText("");
-              return;
-            }
+             if(graph.hasNode(name)){
+                if(graph.getEdgesFrom(name) != null){
+         // center.getChildren().remove(edgesTest.get(graph.getEdgesFrom(name)));
+                  graph.getEdgesFrom(name);
+                  for(Edge<String> e : graph.getEdgesFrom(name)){
+                    center.getChildren().remove(edgesTest.get(e.getName()));
+                    edges.remove(edgesTest.get(e.getName()));
+                    edgesTest.remove(e.getName());
+                    //graph.disconnect(name, hej.getDestination());
+                  }
+                } 
+            graph.remove(name);
+            center.getChildren().remove(nameList.get(name));
+            nameList.remove(name);
+
+            //center.getChildren().remove();
+            //nodeText.setText("name");
+
+            textError.setText("");
+          }else {
             textError.setText("Error: Location doesn't exist");
             System.out.println("den INTE funkar?");
-            
+          }
             
             
             
@@ -490,6 +583,7 @@ public class Gui extends Application {
 
                   nodText = new Text(name);
                 }
+                nodText.setFill(Color.WHITE);
                 StackPane combinedNode = new StackPane(sprite, nodText);
                 Node node = new Node(name, x, y, sprite);
                 node.getChildren().add(combinedNode);
